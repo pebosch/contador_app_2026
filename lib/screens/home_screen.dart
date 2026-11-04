@@ -7,22 +7,19 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomeScreen'),
+        title: Text('HomeScreen', style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.blue,
+        
         elevation: 20,
       ),
-      backgroundColor: Colors.white10,
+      backgroundColor: Colors.white,
       body: Center(
             child:
               const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text('Deliver features faster'),
                   Text('Craft beautiful UIs'),
-                  Expanded(
-                    child: FittedBox(
-                      child: FlutterLogo(),
-                    ),
-                  ),
                 ],
               ) 
               //Text('Hola mundo desde HomeScreen'),
