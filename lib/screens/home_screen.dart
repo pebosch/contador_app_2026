@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int contador = 0;
+  
   @override
   Widget build(BuildContext context) {
 
     const tamano30 = TextStyle( fontSize: 25 );
+    
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomeScreen', style: TextStyle(color: Colors.white),),
+        title: Text('Contador', style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.blue,
         
         elevation: 20,
@@ -18,24 +26,32 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
             child:
-              const Column(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Deliver features faster', style: tamano30),
-                  Text('Craft beautiful UIs', style: tamano30),
+                  Text('Número de clics', style: tamano30),
+                  Text('$contador', style: tamano30),
                 ],
               ) 
               //Text('Hola mundo desde HomeScreen'),
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
           floatingActionButton: FloatingActionButton(
-            child: Icon( Icons.add_circle_outline),
+            backgroundColor: Colors.blue,
+            foregroundColor: Colors.white,
+            child: Icon( Icons.add),
             //child: Text("Añadir"),
             onPressed:() {
-              print("Probando botón...");
+              print("Pulsación registrada");
+              contador++;
+              setState(() {
+                
+              });
+
+              print('$contador');
+
             },
           ),
     );
   }
-
 }
