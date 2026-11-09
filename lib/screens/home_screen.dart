@@ -27,6 +27,14 @@ class HomeScreen extends StatelessWidget {
               ) 
               //Text('Hola mundo desde HomeScreen'),
           ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: FloatingActionButton(
+            child: Icon( Icons.add_circle_outline),
+            //child: Text("Añadir"),
+            onPressed:() {
+              print("Probando botón...");
+            },
+          ),
     );
   }
 
