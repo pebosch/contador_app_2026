@@ -5,6 +5,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    const tamano30 = TextStyle( fontSize: 25 );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('HomeScreen', style: TextStyle(color: Colors.white),),
@@ -18,8 +21,8 @@ class HomeScreen extends StatelessWidget {
               const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Deliver features faster'),
-                  Text('Craft beautiful UIs'),
+                  Text('Deliver features faster', style: tamano30),
+                  Text('Craft beautiful UIs', style: tamano30),
                 ],
               ) 
               //Text('Hola mundo desde HomeScreen'),
