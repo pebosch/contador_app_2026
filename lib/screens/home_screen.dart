@@ -9,6 +9,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int contador = 0;
+
+  void incrementar(){
+    contador++;
+    setState(() {});
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -36,46 +41,48 @@ class _HomeScreenState extends State<HomeScreen> {
               //Text('Hola mundo desde HomeScreen'),
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FloatingActionButton(
-                backgroundColor: Colors.blue,
-                foregroundColor: Colors.white,
-                child: Icon( Icons.remove),
-                //child: Text("Añadir"),
-                onPressed:() {
-                  print("Pulsación registrada");
-                  contador--;
-                  setState(() {
-                    
-                  });
-              
-                  print('$contador');
-              
-                },
-              ),
+          floatingActionButton: CustomFloatingActionButton(incrementarFn: incrementar)
+    );
+  }
+}
 
-              SizedBox( width: 20),
+class CustomFloatingActionButton extends StatelessWidget {
 
-              FloatingActionButton(
-                backgroundColor: Colors.blue,
-                foregroundColor: Colors.white,
-                child: Icon( Icons.add),
-                //child: Text("Añadir"),
-                onPressed:() {
-                  print("Pulsación registrada");
-                  contador++;
-                  setState(() {
-                    
-                  });
-              
-                  print('$contador');
-              
-                },
-              ),
-            ],
-          ),
+  final Function incrementarFn;
+
+  const CustomFloatingActionButton({
+    Key? key, required this.incrementarFn,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        FloatingActionButton(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          child: Icon( Icons.remove),
+          //child: Text("Añadir"),
+          onPressed: null
+        ),
+    
+        FloatingActionButton(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          child: Text("0"),
+          //child: Text("Añadir"),
+          onPressed: null
+        ),
+    
+        FloatingActionButton(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          child: Icon( Icons.add),
+          //child: Text("Añadir"),
+          onPressed: () => incrementarFn()
+        ),
+      ],
     );
   }
 }
