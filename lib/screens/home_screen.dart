@@ -14,6 +14,16 @@ class _HomeScreenState extends State<HomeScreen> {
     contador++;
     setState(() {});
   }
+
+    void decrementar(){
+    contador--;
+    setState(() {});
+  }
+
+    void reset(){
+    contador=0;
+    setState(() {});
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -41,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
               //Text('Hola mundo desde HomeScreen'),
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: CustomFloatingActionButton(incrementarFn: incrementar)
+          floatingActionButton: CustomFloatingActionButton(incrementarFn: incrementar, decrementarFn: decrementar, resetearFn: reset)
     );
   }
 }
@@ -49,9 +59,11 @@ class _HomeScreenState extends State<HomeScreen> {
 class CustomFloatingActionButton extends StatelessWidget {
 
   final Function incrementarFn;
+  final Function decrementarFn;
+  final Function resetearFn;
 
   const CustomFloatingActionButton({
-    Key? key, required this.incrementarFn,
+    Key? key, required this.incrementarFn, required this.decrementarFn, required this.resetearFn,
   }) : super(key: key);
 
   @override
@@ -64,7 +76,7 @@ class CustomFloatingActionButton extends StatelessWidget {
           foregroundColor: Colors.white,
           child: Icon( Icons.remove),
           //child: Text("Añadir"),
-          onPressed: null
+          onPressed: () => decrementarFn()
         ),
     
         FloatingActionButton(
@@ -72,7 +84,7 @@ class CustomFloatingActionButton extends StatelessWidget {
           foregroundColor: Colors.white,
           child: Text("0"),
           //child: Text("Añadir"),
-          onPressed: null
+          onPressed: () => resetearFn()
         ),
     
         FloatingActionButton(
