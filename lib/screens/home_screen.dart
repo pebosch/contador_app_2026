@@ -35,22 +35,46 @@ class _HomeScreenState extends State<HomeScreen> {
               ) 
               //Text('Hola mundo desde HomeScreen'),
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.blue,
-            foregroundColor: Colors.white,
-            child: Icon( Icons.add),
-            //child: Text("Añadir"),
-            onPressed:() {
-              print("Pulsación registrada");
-              contador++;
-              setState(() {
-                
-              });
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FloatingActionButton(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                child: Icon( Icons.remove),
+                //child: Text("Añadir"),
+                onPressed:() {
+                  print("Pulsación registrada");
+                  contador--;
+                  setState(() {
+                    
+                  });
+              
+                  print('$contador');
+              
+                },
+              ),
 
-              print('$contador');
+              SizedBox( width: 20),
 
-            },
+              FloatingActionButton(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                child: Icon( Icons.add),
+                //child: Text("Añadir"),
+                onPressed:() {
+                  print("Pulsación registrada");
+                  contador++;
+                  setState(() {
+                    
+                  });
+              
+                  print('$contador');
+              
+                },
+              ),
+            ],
           ),
     );
   }
